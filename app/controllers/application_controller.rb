@@ -13,7 +13,7 @@ set :views, Proc.new { File.join(root, "../views/") }
     erb :index
   end
   
-  get 'recipes/new' do
+  get '/recipes/new' do
     @recipe = Recipe.new
     erb :new
   end
