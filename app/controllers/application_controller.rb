@@ -13,6 +13,9 @@ set :views, Proc.new { File.join(root, "../views/") }
     erb :index
   end
   
+    get 'recipes/new' do
+    erb :new
+  end
    post '/recipes' do 
     @recipe = Recipe.create(params)
     redirect to '/recipes/:id'
