@@ -14,7 +14,7 @@ set :views, Proc.new { File.join(root, "../views/") }
   end
   
   get 'recipes/new' do
-  erb :new
+    erb :new
   end
    post '/recipes' do 
     @recipe = Recipe.create(params)
