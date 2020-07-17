@@ -7,8 +7,10 @@ set :views, Proc.new { File.join(root, "../views/") }
     set :public_folder, 'public'
     set :views, 'app/views'
   end
+  
+  
   get 'recipes/new' do
-  erb :new
+    erb :new
   end
   
   get '/recipes' do
@@ -16,10 +18,7 @@ set :views, Proc.new { File.join(root, "../views/") }
     erb :index
   end
   
-   post '/recipes' do 
-    @recipe = Recipe.create(params)
-    redirect to '/recipes/:id'
-   end
+
   
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
@@ -40,6 +39,11 @@ set :views, Proc.new { File.join(root, "../views/") }
   @recipe.save
   redirect to '/recipes/:id'
   end
+  
+     post '/recipes' do 
+    @recipe = Recipe.create(params)
+    redirect to '/recipes/:id'
+   end
   
 
 
