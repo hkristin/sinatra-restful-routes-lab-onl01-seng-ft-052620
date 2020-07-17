@@ -20,7 +20,7 @@ set :views, Proc.new { File.join(root, "../views/") }
   
   post '/recipes' do 
     @recipe = Recipe.create(params)
-    redirect to '/recipes/:id'
+    redirect to '/recipes/#{@recipe.id}'
    end
   
   get '/recipes/:id' do
