@@ -8,18 +8,14 @@ set :views, Proc.new { File.join(root, "../views/") }
     set :views, 'app/views'
   end
   
-  get 'recipes/new' do
-    erb :new
-  end
-  
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
   end
   
    post '/recipes' do 
-   @recipe = Recipe.create(params)
-   redirect to '/recipes/:id'
+    @recipe = Recipe.create(params)
+    redirect to '/recipes/:id'
    end
   
   get '/recipes/:id' do
