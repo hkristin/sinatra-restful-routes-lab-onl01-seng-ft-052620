@@ -18,9 +18,9 @@ set :views, Proc.new { File.join(root, "../views/") }
   end
   
    post '/recipes' do 
-  @recipe = Recipe.create(params)
-  redirect to '/recipes/:id'
-  end
+   @recipe = Recipe.create(params)
+   redirect to '/recipes/:id'
+   end
   
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
