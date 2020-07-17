@@ -18,6 +18,10 @@ set :views, Proc.new { File.join(root, "../views/") }
     erb :index
   end
   
+       post '/recipes' do 
+    @recipe = Recipe.create(params)
+    redirect to '/recipes/:id'
+   end
 
   
   get '/recipes/:id' do
@@ -40,10 +44,7 @@ set :views, Proc.new { File.join(root, "../views/") }
   redirect to '/recipes/:id'
   end
   
-     post '/recipes' do 
-    @recipe = Recipe.create(params)
-    redirect to '/recipes/:id'
-   end
+
   
 
 
